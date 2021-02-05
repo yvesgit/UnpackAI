@@ -1,64 +1,25 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf500
-{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fmodern\fcharset0 Courier;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
-{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
-\margl1440\margr1440\vieww14580\viewh11720\viewkind0
-\deftab720
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
 
-\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
-\
-\
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
-\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	1.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What is "self-supervised learning"?\uc0\u8232 \u8232 \cf2 \outl0\strokewidth0 A prediction task where the labels are contained among the inputs\cf2 \outl0\strokewidth0 \strokec2 \uc0\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What is a "language model"?\uc0\u8232 \u8232 A model that has been trained to guess what the next word in a text is (having read the ones before)\u8232 Sorry to copy/paste there but I can\'92t say it better\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Why is a language model considered self-supervised?\uc0\u8232 \u8232 The labels, or output, are included in the text, or input\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	4.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What are self-supervised models usually used for?\uc0\u8232 \u8232 Pre-training a model, in the case of language\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	5.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Why do we fine-tune language models?\uc0\u8232 \u8232 To specialize its expertise to the context of our corpus\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	6.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What are the three steps to create a state-of-the-art text classifier?\uc0\u8232 \u8232 1. Train a language model well on a very large corpus, to get a \'93universal language model\'94 2. Fine tune it to your corpus 3. Classify\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	7.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 How do the 50,000 unlabeled movie reviews help us create a better text classifier for the IMDb dataset?\uc0\u8232 \u8232 By transfer learning of a bigger established model, in our case one trained on wikipedia, onto this corpus (IMDB reviews).\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	8.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What are the three steps to prepare your data for a language model?\uc0\u8232 \u8232 Tokenization, Numerization, and Data Loading. \u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	9.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What is "tokenization"? Why do we need it?\uc0\u8232 \u8232 It is the extraction of the vocabulary of the corpus, up to a chosen limit, in addition to the positioning of several special marker tokens that indicate certain landmarks, such as beginning and end of a text, capitalization, all caps, repetition, and most importantly, and unknown token.\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	10.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Name three different approaches to tokenization.\uc0\u8232 \u8232 1. Do it yourself with some regex 2. Do it yourself with some splitting characters (like <space>, ?, !,.) 3. Use an existing library, such as SpaCy, NLTK, Gensin, Stanza.\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	11.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What is 
-\f1 xxbos
-\f0 ?\uc0\u8232 \u8232 The token to indicate the beginning of a text, It stands for Beginning of Stream.\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	12.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 List four rules that fastai applies to text during tokenization.\uc0\u8232 \u8232 fix_html, replace_rep, replace_wrep, spec_add_spaces\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	13.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Why are repeated characters replaced with a token showing the number of repetitions and the character that's repeated?\uc0\u8232 \u8232 For compactness of information storing\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	14.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What is "numericalization"?\uc0\u8232 \u8232 The conversion of tokens into integers, by taking their index in the vocabulary.\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	15.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Why might there be words that are replaced with the "unknown word" token?\uc0\u8232 \u8232 because they don\'92t make it into the extracted vocabulary, either because they don\'92t meet a set threshold of frequency in the corpus, or because there are more words than the chosen size of the vocabulary.\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	16.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 With a batch size of 64, the first row of the tensor representing the first batch contains the first 64 tokens for the dataset. What does the second row of that tensor contain? What does the first row of the second BATCH contain? (Careful\'97students often get this one wrong! Be sure to check your answer on the book's website.)\uc0\u8232 \u8232 Going by the manual construction in the \'93Putting Our Texts into Batches for a Language Model\'94 section of the notebook, the first rows of all the tensors correspond, if they were concatenated together, to the first batch of the data set. The second rows to the the second batch, etc.\u8232 So the second row of the first tensor is the first 64 tokens of the second batch, while the first row of the second tensor ( I think this question means tensor, not batch for the word I capitalized above) is the continuation of the first 64 tokens first mentioned in the question. \
-\uc0\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	17.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Why do we need padding for text classification? Why don't we need it for language modeling?\uc0\u8232 \u8232 Tensor have to have the same length in each diansion. Since fast.ai wraps Pytorch, we must respect this.\u8232 In a LM, we concatenate all the documents in the corpus and divide that into equal lengths. Them ends of streams are just a token, so we are good intros case.\u8232 In the case of text classification, the data are really the individual texts, which can vary in length. That\'92s why we need to pad those.\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	18.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What does an embedding matrix for NLP contain? What is its shape?\uc0\u8232 \u8232 The indices of the vocabulary. Shape = vocabulary size X number of words in corpus\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	19.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What is "perplexity"?\uc0\u8232 \u8232 I wrote a reflection about it. The short answer is that it is the exponential of the entropy of a test set. Which turns out to be equivalent to the product of the inverses of its predictions on the test set, taken to an nth root for normalization, n being the size of the test set.\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	20.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Why do we have to pass the vocabulary of the language model to the classifier data block?\uc0\u8232 \u8232 Sorry, I can\'92t do better than quoting from the notebook on this one: \'93The reason that we pass the 
-\f1 vocab
-\f0  of the language model is to make sure we use the same correspondence of token to index. Otherwise the embeddings we learned in our fine-tuned language model won't make any sense to this model, and the fine-tuning step won't be of any use.\'94\uc0\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	21.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 What is "gradual unfreezing"?\uc0\u8232 \u8232 It means making layers trainable; one does it from the last layer backwards, and can specify how many layer one wants to unfreeze.\u8232 \
-\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	22.	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Why is text generation always likely to be ahead of automatic identification of machine-generated texts?\uc0\u8232 \u8232 Because no sooner than improvements are made in discriminating between machine and man generated text, than those improvements will be used to improve the machine-generating models, so as to defeat the discriminators once again.\u8232 \u8232 \
-}
+
+	1.	What is "self-supervised learning"?  A prediction task where the labels are contained among the inputs 
+	2.	What is a "language model"?  A model that has been trained to guess what the next word in a text is (having read the ones before) Sorry to copy/paste there but I can’t say it better 
+	3.	Why is a language model considered self-supervised?  The labels, or output, are included in the text, or input 
+	4.	What are self-supervised models usually used for?  Pre-training a model, in the case of language 
+	5.	Why do we fine-tune language models?  To specialize its expertise to the context of our corpus 
+	6.	What are the three steps to create a state-of-the-art text classifier?  1. Train a language model well on a very large corpus, to get a “universal language model” 2. Fine tune it to your corpus 3. Classify 
+	7.	How do the 50,000 unlabeled movie reviews help us create a better text classifier for the IMDb dataset?  By transfer learning of a bigger established model, in our case one trained on wikipedia, onto this corpus (IMDB reviews). 
+	8.	What are the three steps to prepare your data for a language model?  Tokenization, Numerization, and Data Loading.  
+	9.	What is "tokenization"? Why do we need it?  It is the extraction of the vocabulary of the corpus, up to a chosen limit, in addition to the positioning of several special marker tokens that indicate certain landmarks, such as beginning and end of a text, capitalization, all caps, repetition, and most importantly, and unknown token. 
+	10.	Name three different approaches to tokenization.  1. Do it yourself with some regex 2. Do it yourself with some splitting characters (like <space>, ?, !,.) 3. Use an existing library, such as SpaCy, NLTK, Gensin, Stanza. 
+	11.	What is xxbos?  The token to indicate the beginning of a text, It stands for Beginning of Stream. 
+	12.	List four rules that fastai applies to text during tokenization.  fix_html, replace_rep, replace_wrep, spec_add_spaces 
+	13.	Why are repeated characters replaced with a token showing the number of repetitions and the character that's repeated?  For compactness of information storing 
+	14.	What is "numericalization"?  The conversion of tokens into integers, by taking their index in the vocabulary. 
+	15.	Why might there be words that are replaced with the "unknown word" token?  because they don’t make it into the extracted vocabulary, either because they don’t meet a set threshold of frequency in the corpus, or because there are more words than the chosen size of the vocabulary. 
+	16.	With a batch size of 64, the first row of the tensor representing the first batch contains the first 64 tokens for the dataset. What does the second row of that tensor contain? What does the first row of the second BATCH contain? (Careful—students often get this one wrong! Be sure to check your answer on the book's website.)  Going by the manual construction in the “Putting Our Texts into Batches for a Language Model” section of the notebook, the first rows of all the tensors correspond, if they were concatenated together, to the first batch of the data set. The second rows to the the second batch, etc. So the second row of the first tensor is the first 64 tokens of the second batch, while the first row of the second tensor ( I think this question means tensor, not batch for the word I capitalized above) is the continuation of the first 64 tokens first mentioned in the question. 
+ 
+	17.	Why do we need padding for text classification? Why don't we need it for language modeling?  Tensor have to have the same length in each diansion. Since fast.ai wraps Pytorch, we must respect this. In a LM, we concatenate all the documents in the corpus and divide that into equal lengths. Them ends of streams are just a token, so we are good intros case. In the case of text classification, the data are really the individual texts, which can vary in length. That’s why we need to pad those. 
+	18.	What does an embedding matrix for NLP contain? What is its shape?  The indices of the vocabulary. Shape = vocabulary size X number of words in corpus 
+	19.	What is "perplexity"?  I wrote a reflection about it. The short answer is that it is the exponential of the entropy of a test set. Which turns out to be equivalent to the product of the inverses of its predictions on the test set, taken to an nth root for normalization, n being the size of the test set. 
+	20.	Why do we have to pass the vocabulary of the language model to the classifier data block?  Sorry, I can’t do better than quoting from the notebook on this one: “The reason that we pass the vocab of the language model is to make sure we use the same correspondence of token to index. Otherwise the embeddings we learned in our fine-tuned language model won't make any sense to this model, and the fine-tuning step won't be of any use.” 
+	21.	What is "gradual unfreezing"?  It means making layers trainable; one does it from the last layer backwards, and can specify how many layer one wants to unfreeze. 
+	22.	Why is text generation always likely to be ahead of automatic identification of machine-generated texts?  Because no sooner than improvements are made in discriminating between machine and man generated text, than those improvements will be used to improve the machine-generating models, so as to defeat the discriminators once again.  
