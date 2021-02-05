@@ -1,25 +1,69 @@
 
 
-	1.	What is "self-supervised learning"?  A prediction task where the labels are contained among the inputs 
-	2.	What is a "language model"?  A model that has been trained to guess what the next word in a text is (having read the ones before) Sorry to copy/paste there but I can’t say it better 
-	3.	Why is a language model considered self-supervised?  The labels, or output, are included in the text, or input 
-	4.	What are self-supervised models usually used for?  Pre-training a model, in the case of language 
-	5.	Why do we fine-tune language models?  To specialize its expertise to the context of our corpus 
-	6.	What are the three steps to create a state-of-the-art text classifier?  1. Train a language model well on a very large corpus, to get a “universal language model” 2. Fine tune it to your corpus 3. Classify 
-	7.	How do the 50,000 unlabeled movie reviews help us create a better text classifier for the IMDb dataset?  By transfer learning of a bigger established model, in our case one trained on wikipedia, onto this corpus (IMDB reviews). 
-	8.	What are the three steps to prepare your data for a language model?  Tokenization, Numerization, and Data Loading.  
-	9.	What is "tokenization"? Why do we need it?  It is the extraction of the vocabulary of the corpus, up to a chosen limit, in addition to the positioning of several special marker tokens that indicate certain landmarks, such as beginning and end of a text, capitalization, all caps, repetition, and most importantly, and unknown token. 
-	10.	Name three different approaches to tokenization.  1. Do it yourself with some regex 2. Do it yourself with some splitting characters (like <space>, ?, !,.) 3. Use an existing library, such as SpaCy, NLTK, Gensin, Stanza. 
-	11.	What is xxbos?  The token to indicate the beginning of a text, It stands for Beginning of Stream. 
-	12.	List four rules that fastai applies to text during tokenization.  fix_html, replace_rep, replace_wrep, spec_add_spaces 
-	13.	Why are repeated characters replaced with a token showing the number of repetitions and the character that's repeated?  For compactness of information storing 
-	14.	What is "numericalization"?  The conversion of tokens into integers, by taking their index in the vocabulary. 
-	15.	Why might there be words that are replaced with the "unknown word" token?  because they don’t make it into the extracted vocabulary, either because they don’t meet a set threshold of frequency in the corpus, or because there are more words than the chosen size of the vocabulary. 
-	16.	With a batch size of 64, the first row of the tensor representing the first batch contains the first 64 tokens for the dataset. What does the second row of that tensor contain? What does the first row of the second BATCH contain? (Careful—students often get this one wrong! Be sure to check your answer on the book's website.)  Going by the manual construction in the “Putting Our Texts into Batches for a Language Model” section of the notebook, the first rows of all the tensors correspond, if they were concatenated together, to the first batch of the data set. The second rows to the the second batch, etc. So the second row of the first tensor is the first 64 tokens of the second batch, while the first row of the second tensor ( I think this question means tensor, not batch for the word I capitalized above) is the continuation of the first 64 tokens first mentioned in the question. 
+	1.	What is "self-supervised learning"?  
+		A prediction task where the labels are contained among the inputs 
+	
+	
+	2.	What is a "language model"?  
+		A model that has been trained to guess what the next word in a text is (having read the ones before) Sorry to copy/paste there but I can’t say it better 
+	
+	3.	Why is a language model considered self-supervised?  
+		The labels, or output, are included in the text, or input 
+		
+	4.	What are self-supervised models usually used for?  
+		Pre-training a model, in the case of language 
+		
+	5.	Why do we fine-tune language models?  
+		To specialize its expertise to the context of our corpus 
+		
+	6.	What are the three steps to create a state-of-the-art text classifier?  
+		1. Train a language model well on a very large corpus, to get a “universal language model” 2. Fine tune it to your corpus 3. Classify 
+		
+	7.	How do the 50,000 unlabeled movie reviews help us create a better text classifier for the IMDb dataset?  
+		By transfer learning of a bigger established model, in our case one trained on wikipedia, onto this corpus (IMDB reviews). 
+		
+	8.	What are the three steps to prepare your data for a language model?  
+		Tokenization, Numerization, and Data Loading.  
+		
+	9.	What is "tokenization"? Why do we need it?  
+		It is the extraction of the vocabulary of the corpus, up to a chosen limit, in addition to the positioning of several special marker tokens that indicate certain landmarks, such as beginning and end of a text, capitalization, all caps, repetition, and most importantly, and unknown token. 
+		
+	10.	Name three different approaches to tokenization.  
+		1. Do it yourself with some regex 2. Do it yourself with some splitting characters (like <space>, ?, !,.) 3. Use an existing library, such as SpaCy, NLTK, Gensin, Stanza. 
+		
+	11.	What is xxbos?  
+		The token to indicate the beginning of a text, It stands for Beginning of Stream. 
+		
+	12.	List four rules that fastai applies to text during tokenization.  
+		fix_html, replace_rep, replace_wrep, spec_add_spaces 
+		
+	13.	Why are repeated characters replaced with a token showing the number of repetitions and the character that's repeated?  
+		For compactness of information storing 
+		
+	14.	What is "numericalization"?  
+		The conversion of tokens into integers, by taking their index in the vocabulary. 
+		
+	15.	Why might there be words that are replaced with the "unknown word" token?  
+		because they don’t make it into the extracted vocabulary, either because they don’t meet a set threshold of frequency in the corpus, or because there are more words than the chosen size of the vocabulary. 
+		
+	16.	With a batch size of 64, the first row of the tensor representing the first batch contains the first 64 tokens for the dataset. What does the second row of that tensor contain? What does the first row of the second BATCH contain? (Careful—students often get this one wrong! Be sure to check your answer on the book's website.)  
+		Going by the manual construction in the “Putting Our Texts into Batches for a Language Model” section of the notebook, the first rows of all the tensors correspond, if they were concatenated together, to the first batch of the data set. The second rows to the the second batch, etc. So the second row of the first tensor is the first 64 tokens of the second batch, while the first row of the second tensor ( I think this question means tensor, not batch for the word I capitalized above) is the continuation of the first 64 tokens first mentioned in the question.
+		
  
-	17.	Why do we need padding for text classification? Why don't we need it for language modeling?  Tensor have to have the same length in each diansion. Since fast.ai wraps Pytorch, we must respect this. In a LM, we concatenate all the documents in the corpus and divide that into equal lengths. Them ends of streams are just a token, so we are good intros case. In the case of text classification, the data are really the individual texts, which can vary in length. That’s why we need to pad those. 
-	18.	What does an embedding matrix for NLP contain? What is its shape?  The indices of the vocabulary. Shape = vocabulary size X number of words in corpus 
-	19.	What is "perplexity"?  I wrote a reflection about it. The short answer is that it is the exponential of the entropy of a test set. Which turns out to be equivalent to the product of the inverses of its predictions on the test set, taken to an nth root for normalization, n being the size of the test set. 
-	20.	Why do we have to pass the vocabulary of the language model to the classifier data block?  Sorry, I can’t do better than quoting from the notebook on this one: “The reason that we pass the vocab of the language model is to make sure we use the same correspondence of token to index. Otherwise the embeddings we learned in our fine-tuned language model won't make any sense to this model, and the fine-tuning step won't be of any use.” 
-	21.	What is "gradual unfreezing"?  It means making layers trainable; one does it from the last layer backwards, and can specify how many layer one wants to unfreeze. 
-	22.	Why is text generation always likely to be ahead of automatic identification of machine-generated texts?  Because no sooner than improvements are made in discriminating between machine and man generated text, than those improvements will be used to improve the machine-generating models, so as to defeat the discriminators once again.  
+	17.	Why do we need padding for text classification? Why don't we need it for language modeling?  
+		Tensor have to have the same length in each diansion. Since fast.ai wraps Pytorch, we must respect this. In a LM, we concatenate all the documents in the corpus and divide that into equal lengths. Them ends of streams are just a token, so we are good intros case. In the case of text classification, the data are really the individual texts, which can vary in length. That’s why we need to pad those. 
+		
+	18.	What does an embedding matrix for NLP contain? What is its shape?  
+		The indices of the vocabulary. Shape = vocabulary size X number of words in corpus 
+		
+	19.	What is "perplexity"?  
+		I wrote a reflection about it. The short answer is that it is the exponential of the entropy of a test set. Which turns out to be equivalent to the product of the inverses of its predictions on the test set, taken to an nth root for normalization, n being the size of the test set. 
+		
+	20.	Why do we have to pass the vocabulary of the language model to the classifier data block?  
+		Sorry, I can’t do better than quoting from the notebook on this one: “The reason that we pass the vocab of the language model is to make sure we use the same correspondence of token to index. Otherwise the embeddings we learned in our fine-tuned language model won't make any sense to this model, and the fine-tuning step won't be of any use.” 
+		
+	21.	What is "gradual unfreezing"?  
+		It means making layers trainable; one does it from the last layer backwards, and can specify how many layer one wants to unfreeze. 
+		
+	22.	Why is text generation always likely to be ahead of automatic identification of machine-generated texts?  
+		Because no sooner than improvements are made in discriminating between machine and man generated text, than those improvements will be used to 			improve the machine-generating models, so as to defeat the discriminators once again.  
